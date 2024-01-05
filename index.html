@@ -5,54 +5,72 @@
     <title>Mini Golf Score Card</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
+    /* Base body styling */
     body {
         font-family: Arial, sans-serif;
         padding: 20px;
         background-color: #f4f4f4;
-        font-size: 40px; /* Increased from 20px */
+        font-size: 20px; /* Base font size for text */
     }
+
+    /* Control buttons styling */
     .controls button {
-        font-size: 36px; /* Increased from 18px */
-        padding: 20px;
+        font-size: 24px; /* Slightly larger text for buttons */
+        padding: 20px; /* More padding to make buttons square-like */
         margin: 5px;
-        width: 100%; /* Full width on mobile */
+        width: 100%; /* Full width on mobile for easier access */
     }
+
+    /* Table styling for the scorecard */
     table {
         width: 100%;
         border-collapse: collapse;
-        height: 75vh;
-        overflow-y: scroll;
+        height: 75vh; /* Using viewport height to utilize screen space */
+        overflow-y: scroll; /* Allows scrolling if content overflows */
     }
+
+    /* Table headers and cells styling */
     th, td {
         border: 1px solid #ddd;
         text-align: center;
-        padding: 10px;
-        font-size: 32px; /* Increased for legibility */
+        padding: 8px; /* Padding for cell content */
     }
-    th {
-        background-color: #f2f2f2;
+    
+    /* Specifically targeting the player name inputs in the header */
+    th input[type='text'] {
+        font-size: 28px; /* Increasing font size for player names */
+        width: 90%; /* Adjusting width for aesthetic spacing */
     }
-    input[type='number'] {
-        width: 100%; /* Full width on mobile */
-        padding: 15px;
-        font-size: 32px; /* Increased for legibility */
+
+    /* Styling for the hole numbers and player's scores */
+    td input[type='number'] {
+        font-size: 24px; /* Slightly smaller font size for numbers */
+        padding: 10px; /* Padding for touch targets */
+        width: 100%; /* Full width to fill the cell */
     }
+
+    /* Styling for medal positions (gold, silver, bronze) */
     .gold { background-color: gold; }
     .silver { background-color: silver; }
     .bronze { background-color: #cd7f32; }
+
+    /* Sticky top controls container */
     .controls {
         position: sticky;
-        top: 0;
+        top: 0; /* Stick to the top of the viewport */
         background-color: white;
         z-index: 100;
     }
+
+    /* Responsive adjustments for mobile devices */
     @media only screen and (max-width: 768px) {
-        /* Adjust styles for mobile here */
-        .controls button, th, td, input[type='number'] {
-            font-size: 36px; /* Adjust as per preference */
+        /* Adjusting button and input sizes on mobile */
+        .controls button, td input[type='number'], th input[type='text'] {
+            font-size: 24px; /* Unified font size for mobile */
         }
     }
 </style>
+
 
 </head>
 <body>
