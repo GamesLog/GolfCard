@@ -8,47 +8,51 @@
     /* Base body styling */
     body {
         font-family: Arial, sans-serif;
-        padding: 20px;
+        margin: 0; /* Removed padding to use all screen space */
         background-color: #f4f4f4;
         font-size: 16px; /* Base font size for text */
     }
 
     /* Control buttons styling */
     .controls button {
-        font-size: 20px; /* Reduced font size for buttons */
+        font-size: 16px; /* Reduced font size for buttons */
         padding: 10px; /* Reduced padding to decrease button size */
-        margin: 5px;
-        width: auto; /* Auto width to make buttons more square than rectangle */
+        margin: 2px; /* Reduced margin to fit buttons better */
+        width: 32%; /* Set specific width to fit three buttons on one line */
+        display: inline-block; /* Align buttons horizontally */
     }
 
     /* Table styling for the scorecard */
     table {
         width: 100%;
         border-collapse: collapse;
-        /* Removed height to avoid forced vertical scrolling */
-        /* Removed overflow-y to allow natural page flow */
+        /* Removed height to allow natural height based on content */
     }
 
     /* Table headers and cells styling */
     th, td {
         border: 1px solid #ddd;
         text-align: center;
-        padding: 8px; /* Padding for cell content */
-        font-size: 16px; /* Adjusted font size for better fit */
+        padding: 5px; /* Reduced padding for cell content */
+        font-size: 16px; /* Kept font size consistent with body */
     }
     
     /* Specifically targeting the player name inputs in the header */
     th input[type='text'] {
-        font-size: 20px; /* Increased font size for player names */
-        padding: 10px; /* Adjusted padding for better fit */
-        width: auto; /* Adjusted width for aesthetic spacing */
+        font-size: 16px; /* Consistent font size for player names */
+        padding: 5px; /* Reduced padding for better fit */
+        margin: 0; /* Remove margin */
+        width: 90%; /* Adjusted width for aesthetic spacing */
+        display: block; /* Ensure input fills table cell */
     }
 
     /* Styling for the hole numbers and player's scores */
     td input[type='number'] {
-        font-size: 20px; /* Increased font size for player scores */
-        padding: 10px; /* Padding for touch targets */
-        width: auto; /* Adjusted width to fill the cell */
+        font-size: 16px; /* Consistent font size for player scores */
+        padding: 5px; /* Padding for touch targets */
+        margin: 0; /* Remove margin */
+        width: 90%; /* Adjusted width to fit content */
+        display: block; /* Ensure input fills table cell */
     }
 
     /* Styling for medal positions (gold, silver, bronze) */
@@ -62,21 +66,31 @@
         top: 0; /* Stick to the top of the viewport */
         background-color: white;
         z-index: 100;
+        text-align: center; /* Center the buttons */
     }
 
     /* Responsive adjustments for mobile devices */
     @media only screen and (max-width: 768px) {
-        /* Adjusting sizes on mobile */
-        .controls button, th input[type='text'], td input[type='number'] {
-            font-size: 20px; /* Unified font size for mobile */
-            padding: 10px; /* Reduced padding for a compact look */
-            width: auto; /* Auto width for flexibility */
+        /* Adjusting button sizes on mobile */
+        .controls button {
+            font-size: 16px; /* Reduced font size for a compact look */
+            padding: 10px; /* Adjusted padding */
+            width: 32%; /* Adjusted width for three buttons in one row */
+        }
+
+        /* Adjust table cell padding for mobile */
+        th, td {
+            padding: 5px;
+        }
+
+        /* Adjust input sizes for mobile */
+        th input[type='text'], td input[type='number'] {
+            font-size: 16px;
+            padding: 5px;
+            width: 90%; /* Adjusted width to fit content */
         }
     }
 </style>
-
-
-
 </head>
 <body>
     <div class="controls">
