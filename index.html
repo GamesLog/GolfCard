@@ -30,6 +30,8 @@
         table {
             width: 100%;
             border-collapse: collapse;
+            height: 75vh; /* 75% of the viewport height */
+            overflow-y: scroll; /* Allows internal scrolling if content is taller */
         }
         th, td {
             border: 1px solid #ddd;
@@ -46,6 +48,12 @@
         .gold { background-color: gold; }
         .silver { background-color: silver; }
         .bronze { background-color: #cd7f32; } /* Bronze color */
+        .controls {
+            position: sticky;
+            top: 0; /* Adjust as needed */
+            background-color: white;
+            z-index: 100;
+        }
 
 
     </style>
