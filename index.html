@@ -3,7 +3,7 @@
 
 <head>
     <title>Mini Golf Score Card</title>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <style>
     /* Base body styling */
     body {
@@ -90,6 +90,12 @@
             width: 90%; /* Adjusted width to fit content */
         }
     }
+    * {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-touch-callout: none; /* iOS Safari */
+    user-select: none; /* Non-selectable text to prevent copy paste popup */
+}
+
 </style>
 </head>
 <body>
