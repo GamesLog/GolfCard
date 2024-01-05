@@ -5,16 +5,29 @@
     <title>Mini Golf Score Card</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <style>
-    /* Base body styling */
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0; /* Removed padding to use all screen space */
-        background-color: #f4f4f4;
-        font-size: 16px; /* Base font size for text */
-        background-image: url('https://raw.githubusercontent.com/GamesLog/GolfCard/main/backgroundnew.png');
-        background-size: center;
 
-    }
+
+        body, html {
+            height: 100%; /* This makes sure the body takes full viewport height */
+            margin: 0; /* Resets any default margin */
+            font-family: Arial, sans-serif;
+            margin: 0; /* Removed padding to use all screen space */
+            background-color: #f4f4f4;
+            font-size: 16px; /* Base font size for text */
+        }
+
+        .bg-image {
+            /* The image used */
+            background-image: url('https://raw.githubusercontent.com/GamesLog/GolfCard/main/backgroundnew.png');
+
+            /* Full height */
+            height: 100vh; /* This will make the element take the full height of the viewport */
+
+            /* Center and scale the image nicely */
+            background-position: center center; /* Center the image */
+            background-repeat: no-repeat; /* Do not repeat the image */
+            background-size: cover; /* Resize the background image to cover the entire container */
+        }
 
     /* Control buttons styling */
     .controls button {
@@ -31,21 +44,20 @@
         border-collapse: collapse;
         /* Removed height to allow natural height based on content */
     }
-
 /* General text enhancements */
 th, td {
     /* Existing styles */
     font-size: 16px;
     padding: 5px;
     /* New styles */
-    color: #000; /* Ensuring text is black for contrast */
-    text-shadow: 1px 1px 2px rgba(255,255,255,0.7); /* White subtle shadow for dark text */
+    color: #fff; /* Changing text to white */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.7); /* Dark shadow for light text */
 }
 
 /* Enhancing headers - Making them bold and stand out */
 th {
     font-weight: bold; /* Making headers bold */
-    background-color: rgba(255,255,255,0.8); /* Light background for header */
+    background-color: rgba(0,0,0,0.2); /* Slightly dark background for headers to make white text pop */
 }
 
 /* Enhancing input fields - Especially important for numbers */
@@ -54,7 +66,8 @@ input[type='text'], input[type='number'] {
     font-size: 16px;
     padding: 5px;
     /* New styles */
-    background-color: rgba(255,255,255,0.9); /* Slightly opaque background */
+    color: #fff; /* Changing text color to white */
+    background-color: rgba(0,0,0,0.2); /* Slightly dark background for inputs to make text stand out */
     border: 1px solid #ddd; /* Adding a border to inputs */
     box-shadow: 0px 0px 3px rgba(0,0,0,0.2); /* Subtle shadow for depth */
 }
@@ -62,8 +75,8 @@ input[type='text'], input[type='number'] {
 /* Specific color enhancements for medal positions */
 .gold, .silver, .bronze {
     /* Ensuring text contrast */
-    color: #000;
-    text-shadow: 1px 1px 2px rgba(255,255,255,0.7);
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
 }
 
     /* Sticky top controls container */
@@ -105,6 +118,7 @@ input[type='text'], input[type='number'] {
 </style>
 </head>
 <body>
+    <div class="bg-image"></div>
     <div class="controls">
         <button id="addPlayer">Add Player</button>
         <button id="deletePlayer">Delete Player</button>
