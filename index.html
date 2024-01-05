@@ -8,25 +8,16 @@
 
 
         body, html {
-            height: 100%; /* This makes sure the body takes full viewport height */
-            margin: 0; /* Resets any default margin */
+            height: 100%; /* Full height */
+            margin: 0; /* Reset margin */
             font-family: Arial, sans-serif;
-            margin: 0; /* Removed padding to use all screen space */
-            background-color: #f4f4f4;
-            font-size: 16px; /* Base font size for text */
-        }
-
-        .bg-image {
-            /* The image used */
-            background-image: url('https://raw.githubusercontent.com/GamesLog/GolfCard/main/backgroundnew.png');
-
-            /* Full height */
-            height: 100vh; /* This will make the element take the full height of the viewport */
-
-            /* Center and scale the image nicely */
+            background-image: url('https://raw.githubusercontent.com/GamesLog/GolfCard/main/backgroundnew.png'); /* Background image */
             background-position: center center; /* Center the image */
             background-repeat: no-repeat; /* Do not repeat the image */
-            background-size: cover; /* Resize the background image to cover the entire container */
+            background-size: cover; /* Resize the image to cover the entire container */
+            background-attachment: fixed; /* Optional: Fixes the background image during scroll */
+            color: #fff; /* Set text color */
+            /* ... Other properties ... */
         }
 
     /* Control buttons styling */
@@ -146,7 +137,6 @@ input[type='text'], input[type='number'] {
             </tr>
         </tfoot>
     </table>
-        <div class="bg-image"></div>
 </body>
 
 
