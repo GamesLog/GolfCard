@@ -3,60 +3,57 @@
 
 <head>
     <title>Mini Golf Score Card</title>
-    <style>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        @media only screen and (max-width: 768px) {
-            /* Adjust styles for mobile here */
-            .controls button {
-                width: 100%; /* Make buttons full width */
-            }
-            table, input[type='number'] {
-                width: 100%; /* Make table and inputs responsive */
-            }
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        background-color: #f4f4f4;
+        font-size: 40px; /* Increased from 20px */
+    }
+    .controls button {
+        font-size: 36px; /* Increased from 18px */
+        padding: 20px;
+        margin: 5px;
+        width: 100%; /* Full width on mobile */
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        height: 75vh;
+        overflow-y: scroll;
+    }
+    th, td {
+        border: 1px solid #ddd;
+        text-align: center;
+        padding: 10px;
+        font-size: 32px; /* Increased for legibility */
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+    input[type='number'] {
+        width: 100%; /* Full width on mobile */
+        padding: 15px;
+        font-size: 32px; /* Increased for legibility */
+    }
+    .gold { background-color: gold; }
+    .silver { background-color: silver; }
+    .bronze { background-color: #cd7f32; }
+    .controls {
+        position: sticky;
+        top: 0;
+        background-color: white;
+        z-index: 100;
+    }
+    @media only screen and (max-width: 768px) {
+        /* Adjust styles for mobile here */
+        .controls button, th, td, input[type='number'] {
+            font-size: 36px; /* Adjust as per preference */
         }
+    }
+</style>
 
-        body {
-            font-family: Arial, sans-serif;
-            padding: 20px;
-            background-color: #f4f4f4;
-            font-size:20px;
-        }
-        .controls button {
-            font-size: 18px;
-            padding: 15px;
-            margin: 5px;
-            width: 120px;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            height: 75vh; /* 75% of the viewport height */
-            overflow-y: scroll; /* Allows internal scrolling if content is taller */
-        }
-        th, td {
-            border: 1px solid #ddd;
-            text-align: center;
-            padding: 8px;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-        input[type='number'] {
-            width: 70px;
-            padding: 10px;
-        }
-        .gold { background-color: gold; }
-        .silver { background-color: silver; }
-        .bronze { background-color: #cd7f32; } /* Bronze color */
-        .controls {
-            position: sticky;
-            top: 0; /* Adjust as needed */
-            background-color: white;
-            z-index: 100;
-        }
-
-
-    </style>
 </head>
 <body>
     <div class="controls">
