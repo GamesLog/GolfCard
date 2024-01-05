@@ -1,17 +1,29 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Mini Golf Score Card</title>
     <style>
-        /* CSS rules here */
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        @media only screen and (max-width: 768px) {
+            /* Adjust styles for mobile here */
+            .controls button {
+                width: 100%; /* Make buttons full width */
+            }
+            table, input[type='number'] {
+                width: 100%; /* Make table and inputs responsive */
+            }
+        }
+
         body {
             font-family: Arial, sans-serif;
             padding: 20px;
             background-color: #f4f4f4;
+            font-size:20px;
         }
         .controls button {
             font-size: 18px;
-            padding: 10px;
+            padding: 15px;
             margin: 5px;
             width: 120px;
         }
@@ -34,6 +46,8 @@
         .gold { background-color: gold; }
         .silver { background-color: silver; }
         .bronze { background-color: #cd7f32; } /* Bronze color */
+
+
     </style>
 </head>
 <body>
@@ -74,6 +88,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const totalsFooter = document.getElementById("totalsFooter").getElementsByTagName("tr")[0];
     let playerCount = 0; // Track the number of players
 
+
 function calculateTotals() {
     let totals = [];
     // Calculate total for each player
@@ -90,22 +105,29 @@ function calculateTotals() {
     // Sort the totals in ascending order for golf scores
     totals.sort((a, b) => a.total - b.total);
 
-    // Clear previous places
-    for (let i = 1; i < totalsFooter.cells.length; i++) {
-        let placeCell = document.getElementById("placementRow").cells[i];
-        placeCell.className = ""; // Clear classes
-        placeCell.innerText = "";
+    // Make sure placementRow has enough cells
+    const placementRow = document.getElementById("placementRow");
+    while (placementRow.cells.length < headerRow.cells.length) {
+        placementRow.insertCell(-1); // Add missing cells
+    }
+
+    // Clear previous places and remove any styling
+    for (let i = 1; i < placementRow.cells.length; i++) {
+        placementRow.cells[i].className = ""; // Clear classes
+        placementRow.cells[i].innerText = "";
     }
 
     // Assign places and color coding
     totals.forEach((player, rank) => {
-        let placeCell = document.getElementById("placementRow").cells[player.index];
+        let placeCell = placementRow.cells[player.index];
         placeCell.innerText = rank + 1; // Assigning rank
         if (rank === 0) placeCell.classList.add("gold");
         else if (rank === 1) placeCell.classList.add("silver");
         else if (rank === 2) placeCell.classList.add("bronze");
     });
 }
+
+
 
     function addPlayer(name, scores = []) {
         playerCount++;
