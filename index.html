@@ -10,23 +10,23 @@
         font-family: Arial, sans-serif;
         padding: 20px;
         background-color: #f4f4f4;
-        font-size: 20px; /* Base font size for text */
+        font-size: 16px; /* Base font size for text */
     }
 
     /* Control buttons styling */
     .controls button {
-        font-size: 24px; /* Slightly larger text for buttons */
-        padding: 20px; /* More padding to make buttons square-like */
+        font-size: 20px; /* Reduced font size for buttons */
+        padding: 10px; /* Reduced padding to decrease button size */
         margin: 5px;
-        width: 100%; /* Full width on mobile for easier access */
+        width: auto; /* Auto width to make buttons more square than rectangle */
     }
 
     /* Table styling for the scorecard */
     table {
         width: 100%;
         border-collapse: collapse;
-        height: 75vh; /* Using viewport height to utilize screen space */
-        overflow-y: scroll; /* Allows scrolling if content overflows */
+        /* Removed height to avoid forced vertical scrolling */
+        /* Removed overflow-y to allow natural page flow */
     }
 
     /* Table headers and cells styling */
@@ -34,19 +34,21 @@
         border: 1px solid #ddd;
         text-align: center;
         padding: 8px; /* Padding for cell content */
+        font-size: 16px; /* Adjusted font size for better fit */
     }
     
     /* Specifically targeting the player name inputs in the header */
     th input[type='text'] {
-        font-size: 28px; /* Increasing font size for player names */
-        width: 90%; /* Adjusting width for aesthetic spacing */
+        font-size: 20px; /* Increased font size for player names */
+        padding: 10px; /* Adjusted padding for better fit */
+        width: auto; /* Adjusted width for aesthetic spacing */
     }
 
     /* Styling for the hole numbers and player's scores */
     td input[type='number'] {
-        font-size: 24px; /* Slightly smaller font size for numbers */
+        font-size: 20px; /* Increased font size for player scores */
         padding: 10px; /* Padding for touch targets */
-        width: 100%; /* Full width to fill the cell */
+        width: auto; /* Adjusted width to fill the cell */
     }
 
     /* Styling for medal positions (gold, silver, bronze) */
@@ -64,12 +66,15 @@
 
     /* Responsive adjustments for mobile devices */
     @media only screen and (max-width: 768px) {
-        /* Adjusting button and input sizes on mobile */
-        .controls button, td input[type='number'], th input[type='text'] {
-            font-size: 24px; /* Unified font size for mobile */
+        /* Adjusting sizes on mobile */
+        .controls button, th input[type='text'], td input[type='number'] {
+            font-size: 20px; /* Unified font size for mobile */
+            padding: 10px; /* Reduced padding for a compact look */
+            width: auto; /* Auto width for flexibility */
         }
     }
 </style>
+
 
 
 </head>
