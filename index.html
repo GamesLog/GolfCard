@@ -49,10 +49,15 @@
         <tbody id="holesBody">
             <!-- 9 holes will be added here -->
         </tbody>
+        <!-- ... Body content ... -->
         <tfoot id="totalsFooter">
             <tr>
                 <td>Total</td>
                 <!-- Totals will be added here -->
+            </tr>
+            <tr id="placementRow">
+                <td>Place</td>
+                <!-- Placements will be added here -->
             </tr>
         </tfoot>
     </table>
@@ -66,17 +71,38 @@ document.addEventListener("DOMContentLoaded", function() {
     const totalsFooter = document.getElementById("totalsFooter").getElementsByTagName("tr")[0];
     let playerCount = 0; // Track the number of players
 
-    function calculateTotals() {
-        // Calculate total for each player
-        for (let i = 1; i < headerRow.cells.length; i++) {
-            let total = 0;
-            for (let row of holesBody.children) {
-                let input = row.cells[i].getElementsByTagName("input")[0];
-                total += parseInt(input.value) || 0;
-            }
-            totalsFooter.cells[i].innerText = total;
+function calculateTotals() {
+    let totals = [];
+    // Calculate total for each player
+    for (let i = 1; i < headerRow.cells.length; i++) {
+        let total = 0;
+        for (let row of holesBody.children) {
+            let input = row.cells[i].getElementsByTagName("input")[0];
+            total += parseInt(input.value) || 0;
         }
+        totals.push({index: i, total: total});
+        totalsFooter.cells[i].innerText = total;
     }
+
+    // Sort the totals in ascending order for golf scores
+    totals.sort((a, b) => a.total - b.total);
+
+    // Clear previous places
+    for (let i = 1; i < totalsFooter.cells.length; i++) {
+        let placeCell = document.getElementById("placementRow").cells[i];
+        placeCell.className = ""; // Clear classes
+        placeCell.innerText = "";
+    }
+
+    // Assign places and color coding
+    totals.forEach((player, rank) => {
+        let placeCell = document.getElementById("placementRow").cells[player.index];
+        placeCell.innerText = rank + 1; // Assigning rank
+        if (rank === 0) placeCell.classList.add("gold");
+        else if (rank === 1) placeCell.classList.add("silver");
+        else if (rank === 2) placeCell.classList.add("bronze");
+    });
+}
 
     function addPlayer(name, scores = []) {
         playerCount++;
