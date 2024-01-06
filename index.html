@@ -255,16 +255,34 @@ function calculateTotals() {
     }
 
     function loadData() {
-        // Load player names and scores from local storage
-        let data = JSON.parse(localStorage.getItem('golfScoreCard'));
-        if (data && data.players) {
-            for (let i = 0; i < data.players.length; i++) {
-                addPlayer(data.players[i], data.scores[i]);
-            }
-        } else {
-            addPlayer("Player1"); // Add default player
+    // Load player names and scores from local storage
+    let data = JSON.parse(localStorage.getItem('golfScoreCard'));
+    if (data && data.players) {
+        for (let i = 0; i < data.players.length; i++) {
+            addPlayer(data.players[i], data.scores[i]);
         }
+    } else {
+        addPlayer("Player1"); // Add default player
     }
+
+    // After adding players, set the input field styles to match your desired appearance
+    setInputFieldStyles();
+}
+
+// Function to set input field styles
+function setInputFieldStyles() {
+    let inputFields = document.querySelectorAll('input[type="text"], input[type="number"]');
+    inputFields.forEach(function(input) {
+        input.style.fontSize = "24px";
+        input.style.padding = "5px";
+        input.style.fontWeight = "bold";
+        input.style.color = "#39FF14";
+        input.style.backgroundColor = "rgba(0,0,0,0.2)";
+        input.style.border = "1px solid #ddd";
+        input.style.boxShadow = "0px 0px 3px rgba(0,0,0,0.2)";
+        input.style.textAlign = "center";
+    });
+}
 
     // Event listeners for buttons
     document.getElementById("addPlayer").addEventListener("click", function() {
