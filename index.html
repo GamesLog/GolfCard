@@ -184,35 +184,7 @@ function calculateTotals() {
 
 
 
-    function addPlayer(name, scores = []) {
-    playerCount++;
-    let th = document.createElement("th");
-    let playerNameInput = document.createElement("input");
-    playerNameInput.type = "text";
-    playerNameInput.placeholder = name; // Using placeholder for default text
-    playerNameInput.onfocus = function() { this.placeholder = ''; }; // Optional: Clear placeholder on focus
-    playerNameInput.onblur = function() { this.placeholder = name; }; // Optional: Reset placeholder if no name entered
-    playerNameInput.onchange = saveData; // Save new name to local storage
-    th.appendChild(playerNameInput);
-    headerRow.appendChild(th);
 
-    let totalCell = totalsFooter.insertCell(-1);
-    totalCell.innerText = 0; // Initialize total
-
-    for (let i = 0; i < holesBody.children.length; i++) {
-        let row = holesBody.children[i];
-        let cell = row.insertCell(-1);
-        let input = document.createElement("input");
-        input.type = "number";
-        input.pattern = "\\d*";
-        input.value = scores[i] || ''; // Set score if available
-        input.onchange = function() {
-            calculateTotals(); // Recalculate totals when score changes
-            saveData(); // Save data to local storage
-        };
-        cell.appendChild(input);
-    }
-}
 
     function deletePlayer() {
         if (playerCount <= 0) return; // No players to delete
@@ -254,25 +226,7 @@ function calculateTotals() {
         localStorage.setItem('golfScoreCard', JSON.stringify(data));
     }
 
-    function loadData() {
-    // Load player names and scores from local storage
-    let data = JSON.parse(localStorage.getItem('golfScoreCard'));
-    if (data && data.players) {
-        for (let i = 0; i < data.players.length; i++) {
-            addPlayer(data.players[i], data.scores[i]);
-        }
-    } else {
-        addPlayer("Player1"); // Add default player
-    }
-
-    // After adding players, set the input field styles to match your desired appearance
-    setInputFieldStyles();
-}
-
-// Function to set input field styles
-function setInputFieldStyles() {
-    let inputFields = document.querySelectorAll('input[type="text"], input[type="number"]');
-    inputFields.forEach(function(input) {
+    function setStyles(input) {
         input.style.fontSize = "24px";
         input.style.padding = "5px";
         input.style.fontWeight = "bold";
@@ -281,8 +235,62 @@ function setInputFieldStyles() {
         input.style.border = "1px solid #ddd";
         input.style.boxShadow = "0px 0px 3px rgba(0,0,0,0.2)";
         input.style.textAlign = "center";
-    });
-}
+    }
+
+    function addPlayer(name, scores = []) {
+        playerCount++;
+        let th = document.createElement("th");
+        let playerNameInput = document.createElement("input");
+        playerNameInput.type = "text";
+        playerNameInput.placeholder = name; 
+        playerNameInput.onfocus = function() { this.placeholder = ''; };
+        playerNameInput.onblur = function() { if(!this.value) this.placeholder = name; };
+        playerNameInput.onchange = saveData;
+        th.appendChild(playerNameInput);
+        headerRow.appendChild(th);
+        setStyles(playerNameInput); // Apply styles to name input
+
+        let totalCell = totalsFooter.insertCell(-1);
+        totalCell.innerText = 0;
+
+        for (let i = 0; i < holesBody.children.length; i++) {
+            let row = holesBody.children[i];
+            let cell = row.insertCell(-1);
+            let input = document.createElement("input");
+            input.type = "number";
+            input.pattern = "\\d*";
+            input.value = scores[i] || '';
+            input.onchange = function() {
+                calculateTotals();
+                saveData();
+            };
+            cell.appendChild(input);
+            setStyles(input); // Apply styles to score inputs
+        }
+    }
+
+
+
+    function loadData() {
+        let data = JSON.parse(localStorage.getItem('golfScoreCard'));
+        if (data && data.players) {
+            for (let i = 0; i < data.players.length; i++) {
+                addPlayer(data.players[i], data.scores[i]);
+            }
+        } else {
+            addPlayer("Player1");
+        }
+
+        setInputFieldStyles(); // Reapply styles after all players are added
+    }
+
+    function setInputFieldStyles() {
+        let inputFields = document.querySelectorAll('input[type="text"], input[type="number"]');
+        inputFields.forEach(function(input) {
+            setStyles(input); // Apply styles using setStyles function
+        });
+    }
+
 
     // Event listeners for buttons
     document.getElementById("addPlayer").addEventListener("click", function() {
