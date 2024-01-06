@@ -192,32 +192,34 @@ function calculateTotals() {
 
 
     function addPlayer(name, scores = []) {
-        playerCount++;
-        let th = document.createElement("th");
-        let playerNameInput = document.createElement("input");
-        playerNameInput.type = "text";
-        playerNameInput.value = name;
-        playerNameInput.onchange = saveData; // Save new name to local storage
-        th.appendChild(playerNameInput);
-        headerRow.appendChild(th);
+    playerCount++;
+    let th = document.createElement("th");
+    let playerNameInput = document.createElement("input");
+    playerNameInput.type = "text";
+    playerNameInput.placeholder = name; // Using placeholder for default text
+    playerNameInput.onfocus = function() { this.placeholder = ''; }; // Optional: Clear placeholder on focus
+    playerNameInput.onblur = function() { this.placeholder = name; }; // Optional: Reset placeholder if no name entered
+    playerNameInput.onchange = saveData; // Save new name to local storage
+    th.appendChild(playerNameInput);
+    headerRow.appendChild(th);
 
-        let totalCell = totalsFooter.insertCell(-1);
-        totalCell.innerText = 0; // Initialize total
+    let totalCell = totalsFooter.insertCell(-1);
+    totalCell.innerText = 0; // Initialize total
 
-        for (let i = 0; i < holesBody.children.length; i++) {
-            let row = holesBody.children[i];
-            let cell = row.insertCell(-1);
-            let input = document.createElement("input");
-            input.type = "number";
-            input.pattern = "\\d*";
-            input.value = scores[i] || ''; // Set score if available
-            input.onchange = function() {
-                calculateTotals(); // Recalculate totals when score changes
-                saveData(); // Save data to local storage
-            };
-            cell.appendChild(input);
-        }
+    for (let i = 0; i < holesBody.children.length; i++) {
+        let row = holesBody.children[i];
+        let cell = row.insertCell(-1);
+        let input = document.createElement("input");
+        input.type = "number";
+        input.pattern = "\\d*";
+        input.value = scores[i] || ''; // Set score if available
+        input.onchange = function() {
+            calculateTotals(); // Recalculate totals when score changes
+            saveData(); // Save data to local storage
+        };
+        cell.appendChild(input);
     }
+}
 
     function deletePlayer() {
         if (playerCount <= 0) return; // No players to delete
