@@ -5,109 +5,102 @@
     <title>Mini Golf Score Card</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <style>
-
-
-        body, html {
-            height: 100%; /* Full height */
-            margin: 0; /* Reset margin */
-            font-family: Arial, sans-serif;
-            background-image: url('https://raw.githubusercontent.com/GamesLog/GolfCard/main/backgroundnew.png'); /* Background image */
-            background-position: center center; /* Center the image */
-            background-repeat: no-repeat; /* Do not repeat the image */
-            background-size: cover; /* Resize the image to cover the entire container */
-            background-attachment: fixed; /* Optional: Fixes the background image during scroll */
-            color: #fff; /* Set text color */
-            /* ... Other properties ... */
-        }
+    body, html {
+        height: 100%;
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-image: url('https://raw.githubusercontent.com/GamesLog/GolfCard/main/backgroundnew.png');
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        color: #fff;
+        text-align: center; /* Center align all text */
+    }
 
     /* Control buttons styling */
     .controls button {
-        font-size: 16px; /* Reduced font size for buttons */
-        padding: 10px; /* Reduced padding to decrease button size */
-        margin: 2px; /* Reduced margin to fit buttons better */
-        width: 32%; /* Set specific width to fit three buttons on one line */
-        display: inline-block; /* Align buttons horizontally */
+        font-size: 16px;
+        padding: 10px;
+        margin: 2px;
+        width: 32%;
+        display: inline-block;
     }
 
     /* Table styling for the scorecard */
     table {
         width: 100%;
         border-collapse: collapse;
-        /* Removed height to allow natural height based on content */
     }
-/* General text enhancements */
-th, td {
-    /* Existing styles */
-    font-size: 24px;
-    padding: 5px;
-    font-weight: bold; /* Making all text bold */
-    /* New styles */
-    color: #39FF14; /* Neon green text */
-    text-shadow: 2px 2px 5px #FF1493; /* Slightly thicker neon pink shadow */
-}
 
-/* Enhancing headers - Making them bold and stand out */
-th {
-    font-weight: bold; /* Ensuring headers are bold */
-    background-color: rgba(0,0,0,0.2); /* Slightly dark background for headers to make neon text pop */
-}
+    /* General text enhancements */
+    th, td {
+        font-size: 24px;
+        padding: 5px;
+        font-weight: bold;
+        color: #39FF14;
+        text-shadow: 2px 2px 5px #FF1493;
+        text-align: center; /* Center align text in table cells */
+    }
 
-/* Enhancing input fields - Especially important for numbers */
-input[type='text'], input[type='number'] {
-    /* Existing styles */
-    font-size: 24px;
-    padding: 5px;
-    font-weight: bold; /* Making text bold */
-    /* New styles */
-    color: #39FF14; /* Neon green text */
-    background-color: rgba(0,0,0,0.2); /* Slightly dark background for inputs to make text stand out */
-    border: 1px solid #ddd; /* Adding a border to inputs */
-    box-shadow: 0px 0px 3px rgba(0,0,0,0.2); /* Subtle shadow for depth */
-}
+    /* Enhancing headers */
+    th {
+        background-color: rgba(0,0,0,0.2);
+    }
 
-/* Specific color enhancements for medal positions */
-.gold, .silver, .bronze {
-    /* Ensuring text contrast */
-    font-weight: bold; /* Making text bold */
-    color: #39FF14; /* Neon green for medal positions */
-    text-shadow: 2px 2px 5px #FF1493; /* Slightly thicker neon pink shadow */
-}
+    /* Enhancing input fields */
+    input[type='text'], input[type='number'] {
+        font-size: 24px;
+        padding: 5px;
+        font-weight: bold;
+        color: #39FF14;
+        background-color: rgba(0,0,0,0.2);
+        border: 1px solid #ddd;
+        box-shadow: 0px 0px 3px rgba(0,0,0,0.2);
+        text-align: center; /* Center align text in input fields */
+    }
+
+    /* Specific color enhancements for medal positions */
+    .gold, .silver, .bronze {
+        font-weight: bold;
+        color: #39FF14;
+        text-shadow: 2px 2px 5px #FF1493;
+    }
 
     /* Sticky top controls container */
     .controls {
         position: sticky;
-        top: 0; /* Stick to the top of the viewport */
+        top: 0;
         background-color: transparent;
         z-index: 100;
-        text-align: center; /* Center the buttons */
+        text-align: center;
     }
 
     /* Responsive adjustments for mobile devices */
     @media only screen and (max-width: 768px) {
-        /* Adjusting button sizes on mobile */
         .controls button {
-            font-size: 16px; /* Reduced font size for a compact look */
-            padding: 10px; /* Adjusted padding */
-            width: 32%; /* Adjusted width for three buttons in one row */
+            font-size: 16px;
+            padding: 10px;
+            width: 32%;
         }
 
-        /* Adjust table cell padding for mobile */
         th, td {
             padding: 5px;
         }
 
-        /* Adjust input sizes for mobile */
         th input[type='text'], td input[type='number'] {
             font-size: 24px;
             padding: 5px;
-            width: 90%; /* Adjusted width to fit content */
+            width: 90%;
         }
     }
+
     * {
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
-    -webkit-touch-callout: none; /* iOS Safari */
-    user-select: none; /* Non-selectable text to prevent copy paste popup */
-}
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+        -webkit-touch-callout: none;
+        user-select: none;
+    }
+</style>
 
 </style>
 </head>
