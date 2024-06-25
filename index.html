@@ -17,17 +17,22 @@
             background-size: cover; /* Resize the image to cover the entire container */
             background-attachment: fixed; /* Optional: Fixes the background image during scroll */
             color: #fff; /* Set text color */
-            /* ... Other properties ... */
+            text-shadow: 2px 2px 4px #000000; /* Add a dark text shadow for better contrast */
         }
 
-    /* Control buttons styling */
+     /* Control buttons styling */
     .controls button {
         font-size: 16px; /* Reduced font size for buttons */
         padding: 10px; /* Reduced padding to decrease button size */
         margin: 2px; /* Reduced margin to fit buttons better */
         width: 32%; /* Set specific width to fit three buttons on one line */
         display: inline-block; /* Align buttons horizontally */
+        background-color: rgba(0,0,0,0.5); /* Semi-transparent dark background for buttons */
+        border: 1px solid #fff; /* White border on buttons */
+        color: #fff; /* White button text */
+        text-shadow: none; /* Remove text shadow on buttons */
     }
+
 
     /* Table styling for the scorecard */
     table {
@@ -44,13 +49,13 @@ th, td {
     text-align: center; /* Centering text */
     /* New styles */
     color: #ffffff; /* Bright orange-yellow text */
-    text-shadow: 4px 4px 10px #FFFFFF; /* Doubled size white shadow */
+    text-shadow: 2px 2px 4px #000000; /* Doubled size white shadow */
 }
 
 /* Enhancing headers - Making them bold and stand out */
 th {
     font-weight: bold; /* Ensuring headers are bold */
-    background-color: rgba(0,0,0,0.2); /* Slightly dark background for headers to make neon text pop */
+    background-color: rgba(0,0,0,0.5); /* Slightly dark background for headers to make neon text pop */
     text-align: center; /* Centering header text */
 }
 
@@ -63,8 +68,8 @@ input[type='text'], input[type='number'] {
     text-align: center; /* Centering input text */
     /* New styles */
     color: #ffffff; /* Bright orange-yellow text */
-    background-color: rgba(0,0,0,0.2); /* Slightly dark background for inputs to make text stand out */
-    border: 1px solid #ddd; /* Adding a border to inputs */
+    background-color: rgba(0,0,0,0.5); /* Darker semi-transparent background for inputs */
+    border: 1px solid #fff; /* Adding a border to inputs */
     box-shadow: 0px 0px 3px rgba(0,0,0,0.2); /* Subtle shadow for depth */
 }
 
